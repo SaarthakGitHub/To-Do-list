@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo list</title>
+    <link rel="stylesheet" href="/style/main.css">
+</head>
+<body>
+    <h1>To do list</h1>
+        <ul class="list">
+    <% if(locals.data) { %>
+        <h4><%= title %></h4>
+        <% locals.data.forEach((ele,ind) => { %>
+            <form action="/delete" method="post">
+            <li class="lis">
+                <p>
+            <input type="checkbox" name="checkbox" value="<%= ele._id %>" onchange="this.form.submit()">
+             <%= ele.name %> </p>
+             <input type="hidden" name="listName" value="<%= title %>">
+            </li>
+            </form>
+        <% }) %>
+    </ul> 
+ <% } else { %>
+            <h1> Nothing to Show</h1>
+        <% } %>
+    </ul>
+        
+    <form action="/submit" method="POST">
+        <input type="text" name="text">
+        <button type="submit" name="list" value="<%= title %>">Submit</button>
+    </form>
+</body>
+</html>

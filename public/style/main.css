@@ -1,0 +1,11 @@
+body{
+    background-color: blanchedalmond;
+}
+
+.checked{
+    text-decoration: line-through;
+}
+
+.lis{
+    list-style-type: none;
+}
